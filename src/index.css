@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  width: 0px; 
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 5px; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #606060;
+  border-radius: 5px; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666; 
+}
+
+::selection{
+  background-color: transparent;
+}
+
+.whatsapp::selection{
+  background-color: green;
+  color: white;
+}
+
+.gmail::selection{
+  background-color: rgb(255, 115, 115);
+  color: white;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+ }
+ 
+ .text-overflow-ellipsis {
+  text-overflow: ellipsis;
+ }
