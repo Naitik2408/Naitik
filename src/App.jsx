@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { SlSocialLinkedin, SlSocialGithub, SlSocialInstagram, SlNotebook, SlMenu } from "react-icons/sl";
 import { RxCross1 } from "react-icons/rx";
 import { IoLogoGithub } from "react-icons/io5";
-import { GoLink } from "react-icons/go";
 import img1 from './assets/ProfileImage.jpeg'
 import icon from '/icon2.png'
 import shortUrlIcon from './assets/ShortUrlIcon.png'
@@ -15,18 +14,20 @@ import githubVideo from './assets/githubVideo.mp4'
 import profileVideo1 from './assets/ProfileVideo1.mp4'
 import whatsapp from './assets/whatsapp.png'
 import gmail from './assets/gmail.png'
+import ProjectCard from './Components/ProjectCard';
+import Footer from './Components/Footer';
 
 
 
 function App() {
   const [bar, setBar] = useState(false);
-  const [loder, setLoder] = useState(true);
+  // const [loder, setLoder] = useState(true);
 
-  useEffect(() => {
-    window.onload = () => {
-      setLoder(false);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.onload = () => {
+  //     setLoder(false);
+  //   };
+  // }, []);
 
   const handleBar = () => {
     setBar(!bar);
@@ -56,14 +57,16 @@ function App() {
 
 
         {/* This is left section of the page................  */}
-        <div className="lg:w-[18%] md:w-[28%] h-full rounded-md md:flex flex-col gap-4 hidden">
+        <div className="lg:w-[18%] md:w-[28%] h-full rounded-md md:flex flex-col hidden">
+          <div className='flex flex-col gap-4 w-full h-[30%]'>
           <a href="https://www.linkedin.com/in/naitik2/" target='_blank'>
             <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialLinkedin className='text-blue-500' /><div className="text-gray-300">Linkedin</div></div></div></a>
           <a href="https://github.com/Naitik2408" target='_blank'>
             <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialGithub className='text-purple-500' /><div className="text-gray-300">Github</div></div></div></a>
           <a href="https://www.instagram.com/naitik7324/" target='_blank'>
             <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialInstagram className='text-orange-500' /><div className="text-gray-300">Instagram</div></div></div></a>
-          <div className="w-full h-96 bg-black rounded-md p-3 relative overflow-hidden">
+          </div>
+          <div className="w-full h-96 bg-black rounded-md p-3 relative overflow-hidden h-[70%]">
             <div className='text-white flex items-center gap-3 text-xl'>
               <IoLogoGithub />
             </div>
@@ -103,18 +106,20 @@ function App() {
           <div className="w-full min:h-60 flex items-center justify-center px-20 py-3 flex-col md:flex-row gap-2 md:justify-between relative">
             <div className="w-52 h-52 rounded-full object-cover z-10 p-1 md:border-2 border-4 border-white">
               <div className='w-full h-full overflow-hidden rounded-full'>
-                <img src={img1} alt="Profile image" />
+                <img src={img1} alt="Profile image" className='w-full h-full object-cover' />
               </div>
             </div>
             <div className='text-center w-full md:w-[60%] flex flex-col justify-between z-10'>
               <div className='text-3xl font-semibold text-gray-800 md:text-5xl '>Naitik Kumar</div>
               <div className='text-gray-700 text-lg underline'>Web Developer</div>
-              <div className='flex flex-col md:flex-row gap-4 md:gap-9 mt-5 md:mt-16 items-center justify-center'>
+              <div className='flex flex-col lg:flex-row gap-4 md:gap-9 mt-5 md:mt-16 items-center justify-center'>
                 <div className='flex gap-1'><img src={whatsapp} alt="" className='w-6' /><div className='bg-gray-300/50 px-2 rounded-md cursor-pointer hover:bg-gray-300 text-gray-800 whatsapp'>9060557296</div></div>
                 <div className='flex items-center gap-2 '><img src={gmail} alt="" className='w-6' /><div className='bg-gray-300/50 px-2 rounded-md hover:bg-gray-300 cursor-pointer text-gray-800 gmail'>naitikkumarofficial2408@gmail.com</div></div>
               </div>
             </div>
-            <div className='w-full h-full overflow-hidden absolute top-0 bottom-0 left-0 -z-0'><video src={profileVideo1} autoPlay muted loop className='w-full h-full object-cover' ></video></div>
+            <div className='w-full h-full overflow-hidden absolute top-0 bottom-0 left-0 -z-0'>
+              <video src={profileVideo1} autoPlay muted loop className='w-full h-full object-cover' ></video>
+            </div>
           </div>
 
           {/* This div contain Title and all projects related information...............  */}
@@ -128,109 +133,16 @@ function App() {
             {/* This div contains all projects  related to a user. Each project will be displayed in card format with title, description, start date.............  */}
             <div className="flex flex-wrap gap-7">
 
+              <ProjectCard iconImg={shortUrlIcon} title={"Url-Shortner"} websiteLink={"https://url-shortner-seven-swart.vercel.app/"} websiteLinkTitle={"url-shortner-seven-swart.vercel"} githubLink={"https://github.com/Naitik2408/Url-Shortner"} githubLinkTitle={"Naitik2408/Url-Shortner"} commit={"updated readme file"} date={"8h ago on"} />
 
-              {/* This is the first  project card. You can add more cards by copying this one and pasting it below ............  */}
-              <div className="xl:w-80 lg:w-[48%] w-full h-56 border-[1px] border-gray-600 rounded-md overflow-hidden p-2">
-                <div className="w-full h-[30%] overflow-hidden rounded-t-md"><img src="https://images.unsplash.com/photo-1492892132812-a00a8b245c45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></div>
-                <div className="w-full h-[70%] py-3 flex gap-2 flex-col text-sm text-gray-300">
-                  <div className="flex gap-2 items-center">
-                    <div className="w-10"><img src={shortUrlIcon} alt="" /></div>
-                    <div>
-                      <div className="text-gray-200">Url-Shortner</div>
-                      <div className="text-gray-400 hover:underline hover:text-blue-600 cursor-pointer flex gap-1 items-center ">
-                        <a href="https://url-shortner-seven-swart.vercel.app/" target='_blank' className='flex items-center gap-1'>url-shortner-seven-swart.vercel
-                        </a>
-                        <GoLink className='text-xs' />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2 items-center pl-4 cursor-pointer hover:underline">
-                    <IoLogoGithub />
-                    <div><a href="https://github.com/Naitik2408/Url-Shortner" target='_blank'>Naitik2408/Url-Shortner</a></div>
-                  </div>
-                  <div className="text-gray-400">
-                    <div>updated readme file</div>
-                    <div>8h ago on</div>
-                  </div>
-                </div>
-              </div>
 
-              {/* This is the second  project card. You can add more cards by copying this one and pasting it below ............  */}
-              <div className="xl:w-80 lg:w-[48%] w-full h-56 border-[1px] border-gray-600 rounded-md overflow-hidden p-2">
-                <div className="w-full h-[30%] overflow-hidden rounded-t-md"><img src="https://images.unsplash.com/photo-1492892132812-a00a8b245c45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></div>
-                <div className="w-full h-[70%] py-3 flex gap-2 flex-col text-sm text-gray-300">
-                  <div className="flex gap-2 items-center">
-                    <div className="w-10"><img src={noteAppIcon} alt="" /></div>
-                    <div>
-                      <div className="text-gray-200">Note-app</div>
-                      <div className="text-gray-400 hover:underline hover:text-blue-600 cursor-pointer flex gap-2 items-center">
-                        <a href="https://note-app-black-eight.vercel.app/" target='_blank'>note-app-black-eight.vercel.app
-                        </a>
-                        <GoLink className='text-xs' />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2 items-center pl-4 cursor-pointer hover:underline">
-                    <IoLogoGithub />
-                    <div><a href="https://github.com/Naitik2408/NoteApp" target='_blank'>Naitik2408/NoteApp</a></div>
-                  </div>
-                  <div className="text-gray-400">
-                    <div className="overflow-hidden w-full whitespace-nowrap text-overflow-ellipsis">update the redme file according to updated version.</div>
-                    <div>8h ago on</div>
-                  </div>
-                </div>
-              </div>
+              <ProjectCard iconImg={noteAppIcon} title={"Note-app"} websiteLink={"https://note-app-black-eight.vercel.app/"} websiteLinkTitle={"note-app-black-eight.vercel.app"} githubLink={"https://github.com/Naitik2408/NoteApp"} githubLinkTitle={"Naitik2408/NoteApp"} commit={"update the redme file according to updated version."} date={"8h ago on"} />
 
-              {/* This is the Third  project card. You can add more cards by copying this one and pasting it below ............  */}
-              <div className="xl:w-80 lg:w-[48%] lg:justify-between xl:justify-start w-full h-56 border-[1px] border-gray-600 rounded-md overflow-hidden p-2">
-                <div className="w-full h-[30%] overflow-hidden rounded-t-md"><img src="https://images.unsplash.com/photo-1492892132812-a00a8b245c45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></div>
-                <div className="w-full h-[70%] py-3 flex gap-2 flex-col text-sm text-gray-300">
-                  <div className="flex gap-2 items-center">
-                    <div className="w-10"><img src={shorUrlApi} alt="" /></div>
-                    <div>
-                      <div className="text-gray-200">Url-Shortner-api</div>
-                      <div className="text-gray-400 hover:underline hover:text-blue-600 cursor-pointer flex items-center gap-1">
-                        <a href="https://github.com/Naitik2408/Url-Shortner-api" target='_blank'>url-shortner-api-tau.verel.app
-                        </a>
-                        <GoLink className='text-xs' />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2 items-center pl-4 cursor-pointer hover:underline">
-                    <IoLogoGithub />
-                    <div><a href="https://github.com/Naitik2408/Url-Shortner-api" target='_blank'>Naitik2408/Url-Shortner</a></div>
-                  </div>
-                  <div className="text-gray-400">
-                    <div>cors origin chaged 3</div>
-                    <div>12h ago on</div>
-                  </div>
-                </div>
-              </div>
 
-              {/* This is the fourth  project card. You can add more cards by copying this one and pasting it below ............  */}
-              <div className="xl:w-80 lg:w-[48%] lg:justify-between xl:justify-start w-full h-56 border-[1px] border-gray-600 rounded-md overflow-hidden p-2">
-                <div className="w-full h-[30%] overflow-hidden rounded-t-md"><img src="https://images.unsplash.com/photo-1492892132812-a00a8b245c45?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></div>
-                <div className="w-full h-[70%] py-3 flex gap-2 flex-col text-sm text-gray-300">
-                  <div className="flex gap-2 items-center">
-                    <div className="w-10"><img src={bhailang} alt="" /></div>
-                    <div>
-                      <div className="text-gray-200">Bhailang</div>
-                      <div className="text-gray-400 hover:underline hover:text-blue-600 cursor-pointer flex items-center gap-1">
-                        <a href="https://github.com/Naitik2408/Bhailang" target='_blank'>bhailang-seven-swart.vercel..</a>
-                        <GoLink className='text-xs' />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex gap-2 items-center pl-4 cursor-pointer hover:underline">
-                    <IoLogoGithub />
-                    <div><a href="https://github.com/Naitik2408/Bhailang" target='_blank'>Naitik2408/Bhailang</a></div>
-                  </div>
-                  <div className="text-gray-400">
-                    <div>updated readme file</div>
-                    <div>8h ago on</div>
-                  </div>
-                </div>
-              </div>
+              <ProjectCard iconImg={shorUrlApi} title={"Url-Shortner-api"} websiteLink={"https://github.com/Naitik2408/Url-Shortner-api"} websiteLinkTitle={"url-shortner-api-tau.verel.app"} githubLink={"https://github.com/Naitik2408/Url-Shortner-api"} githubLinkTitle={"Naitik2408/Url-Shortner-api"} commit={"cors origin chaged 3"} date={"12h ago on"} />
+
+
+              <ProjectCard iconImg={bhailang} title={"Bhailang"} websiteLink={"https://github.com/Naitik2408/Bhailang"} websiteLinkTitle={"url-shortner-seven-swart.vercel"} githubLink={"https://github.com/Naitik2408/Bhailang"} githubLinkTitle={"Naitik2408/Url-Shortner-api"} commit={"updated readme file"} date={"8h ago on"} />
 
             </div>
           </div>
@@ -284,17 +196,8 @@ function App() {
           </div>
 
           {/* This is footer  part of the page.................  */}
-          <div className='w-full mt-7 mb-3 text-gray-400'>
-            <div className='b border-t-[1px] border-t-gray-600 py-2 flex justify-center items-center gap-3'>
-              <div className='text-sm'>Created By - Naitik kumar</div>
-              <div className=' border-r-[1px] border-r-gray-400 h-7'></div>
-              <div className='flex items-center gap-3'>
-                <a href="https://www.linkedin.com/in/naitik2/" target='_blank'><SlSocialLinkedin className='cursor-pointer text-blue-500' /></a>
-                <a href="https://github.com/Naitik2408" target='_blank'><SlSocialGithub className='cursor-pointer text-purple-500' /></a>
-                <a href="https://www.instagram.com/naitik7324/" target='_blank'><SlSocialInstagram className='cursor-pointer text-orange-500' /></a>
-              </div>
-            </div>
-          </div>
+          <Footer />
+
         </div>
       </div>
 
@@ -344,7 +247,7 @@ function App() {
 
 
       {/* This is loder ................  */}
-      {loder && (
+      {/* {loder && (
         <div className='w-screen h-screen z-50 flex justify-center items-center fixed top-0 bg-gray-800'>
           <div className="flex justify-center items-center h-screen">
             <div className="animate-spin ease-linear rounded-full w-5 h-5 border-t-2 border-b-2 border-purple-500"></div>
@@ -352,7 +255,7 @@ function App() {
             <div className="animate-spin ease-linear rounded-full w-5 h-5 border-t-2 border-b-2 border-blue-500 ml-3"></div>
           </div>
         </div>
-      )}
+      )} */}
 
 
 
