@@ -12,6 +12,7 @@ import bhailang from './assets/BhailangIcon.png'
 import githubProfileImage from './assets/githubProfileImage.jpg'
 import githubVideo from './assets/githubVideo.mp4'
 import profileVideo1 from './assets/ProfileVideo1.mp4'
+import profileVideoImage from './assets/ProfileVideoImage.jpg'
 import whatsapp from './assets/whatsapp.png'
 import gmail from './assets/gmail.png'
 import ProjectCard from './Components/ProjectCard';
@@ -112,6 +113,7 @@ function App() {
             </div>
             <div className='w-full h-full overflow-hidden absolute top-0 bottom-0 left-0 -z-0'>
               <video src={profileVideo1} autoPlay muted loop className='w-full h-full object-cover' ></video>
+              <img src={profileVideoImage} alt="" className='w-full h-full object-cover' />
             </div>
           </div>
 
