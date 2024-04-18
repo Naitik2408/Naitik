@@ -13,6 +13,9 @@ import githubProfileImage from './assets/githubProfileImage.jpg'
 import githubVideo from './assets/githubVideo.mp4'
 import profileVideo1 from './assets/ProfileVideo1.mp4'
 import profileVideoImage from './assets/ProfileVideoImage.jpg'
+import leetcode from './assets/leetcode.png'
+import hackerRank from './assets/hackerRank.png'
+import java from './assets/java.png'
 import whatsapp from './assets/whatsapp.png'
 import gmail from './assets/gmail.png'
 import ProjectCard from './Components/ProjectCard';
@@ -53,12 +56,12 @@ function App() {
         {/* This is left section of the page................  */}
         <div className="lg:w-[18%] md:w-[28%] h-full rounded-md md:flex flex-col hidden">
           <div className='flex flex-col gap-4 w-full h-[30%]'>
-          <a href="https://www.linkedin.com/in/naitik2/" target='_blank'>
-            <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialLinkedin className='text-blue-500' /><div className="text-gray-300">Linkedin</div></div></div></a>
-          <a href="https://github.com/Naitik2408" target='_blank'>
-            <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialGithub className='text-purple-500' /><div className="text-gray-300">Github</div></div></div></a>
-          <a href="https://www.instagram.com/naitik7324/" target='_blank'>
-            <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialInstagram className='text-orange-500' /><div className="text-gray-300">Instagram</div></div></div></a>
+            <a href="https://www.linkedin.com/in/naitik2/" target='_blank'>
+              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialLinkedin className='text-blue-500' /><div className="text-gray-300">Linkedin</div></div></div></a>
+            <a href="https://github.com/Naitik2408" target='_blank'>
+              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialGithub className='text-purple-500' /><div className="text-gray-300">Github</div></div></div></a>
+            <a href="https://www.instagram.com/naitik7324/" target='_blank'>
+              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialInstagram className='text-orange-500' /><div className="text-gray-300">Instagram</div></div></div></a>
           </div>
           <div className="w-full h-96 bg-black rounded-md p-3 relative overflow-hidden h-[70%]">
             <div className='text-white flex items-center gap-3 text-xl'>
@@ -145,6 +148,68 @@ function App() {
           {/* This is github Repository.....................  */}
           <div className='my-10 p-3 bg-black rounded-md'>
             <div className='text-white text-xl'><IoLogoGithub /></div>
+            <div className='w-full h-48 mt-9 flex gap-3'>
+              <div className='w-80 h-full p-2 border border-gray-900 rounded-lg bg-gray-950 px-4'>
+                <div className='flex items-start gap-2 h-[20%]'>
+                  <img src={leetcode} alt="" className='w-6' />
+                  <div className='text-gray-300'>Leetcode</div>
+                </div>
+                <div className='w-full h-[80%] flex justify-between items-center'>
+                  <div className='w-[45%] h-full flex items-center justify-center'>
+                    <div className=' w-32 h-32 rounded-full border-2 border-gray-400 flex items-center justify-center'>
+                      <div className='flex flex-col items-center text-gray-500'>
+                        <div className='text-sm'>All</div>
+                        <div className='text-4xl text-gray-300'>12</div>
+                        <div className='w-full h-[0.6px] bg-gray-500'></div>
+                        <div className='text-sm'>3119</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='w-[55%] h-full flex justify-end items-center'>
+                    <div className='text-gray-500 w-fit h-fit '>
+                      <div className='flex gap-4 justify-between'>
+                        <div className='text-[#00B893]'>Easy</div>
+                        <div className='text-gray-300'>8 <span className='text-sm text-gray-500'>/787</span></div>
+                      </div>
+                      <div className='flex gap-4 justify-between'>
+                        <div className=' text-yellow-600'>Medium</div>
+                        <div className='text-gray-300'>4 <span className='text-sm text-gray-500'>/1637</span></div>
+                      </div>
+                      <div className='flex gap-4 justify-between'>
+                        <div className='text-red-500'>Hard</div>
+                        <div className='text-gray-300'>0 <span className='text-sm text-gray-500'>/695</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className='w-80 h-full p-2 border border-gray-900 rounded-lg bg-gray-950 px-4'>
+                <div className='flex items-start gap-2 h-[20%]'>
+                  <img src={hackerRank} alt="" className='w-6' />
+                  <div className='text-gray-300 flex items-center gap-[2px]'>HackerRank <div className='w-2 h-4 bg-green-600'></div></div>
+                </div>
+                <div className='flex justify-between h-[80%]'>
+                  <div className='w-[65%] h-full'>
+                    <div>
+                      <div className='text-3xl text-gray-300'>Java</div>
+                      <div className='w-full mt-4 h-2 bg-gray-200 rounded-md overflow-hidden'>
+                        <div className='w-[30%] h-full bg-green-500'></div>
+                      </div>
+                      <div className='mt-3'>
+                        <div className='text-gray-300'>20% <span className='text-gray-400 text-sm'>(20 points to next star)</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='w-[30%] h-full flex justify-center items-center'>
+                    <div className='w-fit h-fit bg-red-400 p-4 rounded-lg'><img src={java} alt="" className='w-10' /></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div className='w-full flex justify-center items-center mt-5 mb-2'>
+              <div className='w-1 h-1 bg-green-500 rounded-full hover:bg-green-300 cursor-pointer'></div>
+            </div>
           </div>
 
 
