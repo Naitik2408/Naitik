@@ -131,7 +131,7 @@ function App() {
             {/* This div contains all projects  related to a user. Each project will be displayed in card format with title, description, start date.............  */}
             <div className="flex flex-wrap gap-7">
 
-              <ProjectCard iconImg={shortUrlIcon} title={"Url-Shortner"} websiteLink={"https://url-shortner-seven-swart.vercel.app/"} websiteLinkTitle={"url-shortner-seven-swart.vercel"} githubLink={"https://github.com/Naitik2408/Url-Shortner"} githubLinkTitle={"Naitik2408/Url-Shortner"} commit={"updated readme file"} date={"8h ago on"} />
+              <ProjectCard iconImg={shortUrlIcon} title={"Url-Shortner"} websiteLink={"https://github.com/Naitik2408/Url-Shortner"} websiteLinkTitle={"url-shortner-seven-swart.vercel"} githubLink={"https://github.com/Naitik2408/Url-Shortner"} githubLinkTitle={"Naitik2408/Url-Shortner"} commit={"updated readme file"} date={"8h ago on"} />
 
 
               <ProjectCard iconImg={noteAppIcon} title={"Note-app"} websiteLink={"https://note-app-black-eight.vercel.app/"} websiteLinkTitle={"note-app-black-eight.vercel.app"} githubLink={"https://github.com/Naitik2408/NoteApp"} githubLinkTitle={"Naitik2408/NoteApp"} commit={"update the redme file according to updated version."} date={"8h ago on"} />
