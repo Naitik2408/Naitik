@@ -121,7 +121,7 @@ function Dashboard() {
 
       </div>
 
-      <div className='bg-[#3A3B3D] p-6 rounded-lg'>
+      <div className='bg-[#3A3B3D] p-6 rounded-lg overflow-x-auto'>
         <div className='flex justify-between'>
           <div className='text-2xl font-semibold text-white mb-2'>Posts</div>
           <a href="#addPost">
