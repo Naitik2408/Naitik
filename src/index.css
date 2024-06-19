@@ -24,7 +24,8 @@
 }
 
 ::selection{
-  background-color: transparent;
+  background-color: #685CFE;
+  color: white;
 }
 
 .whatsapp::selection{
@@ -43,4 +44,20 @@
  
  .text-overflow-ellipsis {
   text-overflow: ellipsis;
+ }
+ 
+
+ .ql-toolbar{
+  background-color: #a9a2ff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+ }
+
+ .ql-container{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+ }
+
+ .ql-editor{
+  height: 200px;
  }

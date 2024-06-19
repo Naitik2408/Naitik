@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoLogoGithub } from "react-icons/io5";
-import cardImage from '../assets/cardImage.avif'
+import cardImage from '../../assets/cardImage.avif'
 import { GoLink } from "react-icons/go";
 
 function ProjectCard({iconImg, title, websiteLink, websiteLinkTitle, githubLink, githubLinkTitle, commit, date }) {
