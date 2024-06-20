@@ -130,7 +130,7 @@ function Dashboard() {
         </div>
         {isLoadingPost? 
         <div className='w-full h-[60vh]'><Loader/></div> : 
-        <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto overflow-x-auto'>
+        <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
         <thead className='text-gray-50 font-semibold'>
           <tr className='border-b border-[#6b6b6c]'>
             <td className='p-3'>So.no</td>
