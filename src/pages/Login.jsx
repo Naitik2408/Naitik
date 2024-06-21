@@ -53,7 +53,7 @@ function Login() {
   return (
     <div className='w-full min-h-full flex justify-center items-center'>
       <form onSubmit={handleSubmit}> {/* Wrap inputs in a form tag */}
-        <div className='p-5 bg-gray-50 rounded-md w-96'>
+        <div className='p-5 bg-gray-50 rounded-md w-80 md:w-96'>
           <label htmlFor="email">Email</label><br />
           <input
             type="text"

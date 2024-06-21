@@ -36,7 +36,7 @@ function AllBlogs() {
         <div>
             <div className='text-center pb-20 border-b border-b-gray-700 mb-10'>
                 <div className='text-4xl font-bold text-gray-100 mb-10'>Explore Our Blog Archive</div>
-                <div className='text-gray-300 px-32 font-thin'>"Welcome to our treasure trove of insights and stories! Dive into a diverse collection of blogs crafted with passion and expertise. Whether you're here to learn something new, find inspiration, or simply enjoy a good read, we have something for everyone. Happy exploring!"</div>
+                <div className='text-gray-300 px-10 md:px-32 font-thin'>"Welcome to our treasure trove of insights and stories! Dive into a diverse collection of blogs crafted with passion and expertise. Whether you're here to learn something new, find inspiration, or simply enjoy a good read, we have something for everyone. Happy exploring!"</div>
             </div>
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
             {data.map(post => (

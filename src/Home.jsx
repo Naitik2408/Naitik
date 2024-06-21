@@ -49,7 +49,7 @@ function Home() {
   const handleLogout = async () => {
     try {
       await postData(`${import.meta.env.VITE_API_URL}/api/v1/users/logout`, { action: 'logout' });
-      dispatch(logout()); 
+      dispatch(logout());
       dispatch(showAlert('You are logged out successfully'));
       console.log('Logout successful');
       navigate("/")
@@ -85,28 +85,22 @@ function Home() {
         {/* This is left section of the page................  */}
         <div className="lg:w-[18%] md:w-[28%] h-full gap-3 rounded-md md:flex flex-col hidden">
           <div className='flex flex-col gap-1 w-full h-[38%]'>
-            {/* <a href="https://www.linkedin.com/in/naitik2/" target='_blank'>
-              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialLinkedin className='text-blue-500' /><div className="text-gray-300">Linkedin</div></div></div></a> */}
-            {/* <a href="https://github.com/Naitik2408" target='_blank'>
-              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialGithub className='text-purple-500' /><div className="text-gray-300">Github</div></div></div></a> */}
-            {/* <a href="https://www.instagram.com/naitik7324/" target='_blank'>
-              <div className="rounded-md p-2 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialInstagram className='text-orange-500' /><div className="text-gray-300">Instagrammm</div></div></div></a> */}
             <Link to="/">
-              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/"? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><ImCommand className='text-blue-50' /><div className="text-gray-50">Portfolio</div></div></div></Link>
+              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><ImCommand className='text-blue-50' /><div className="text-gray-50">Portfolio</div></div></div></Link>
             <Link to="/blog">
-              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${(location.pathname.startsWith("/blog"))? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuAirplay className='text-gray-50' /><div className="text-gray-50">Blog</div></div></div></Link>
-            {(isAuthenticated && user.role=='admin' ) && (
+              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${(location.pathname.startsWith("/blog")) ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuAirplay className='text-gray-50' /><div className="text-gray-50">Blog</div></div></div></Link>
+            {(isAuthenticated && user.role == 'admin') && (
               <>
                 <Link to="/dashboard">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/dashboard"? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLayoutDashboard className='text-blue-50' /><div className="text-gray-50">Dashboard</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/dashboard" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLayoutDashboard className='text-blue-50' /><div className="text-gray-50">Dashboard</div></div></div></Link>
               </>
             )}
             {!isAuthenticated && (
               <>
                 <Link to="/login">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/login"? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLogIn className='text-blue-50' /><div className="text-gray-50">Login</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/login" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLogIn className='text-blue-50' /><div className="text-gray-50">Login</div></div></div></Link>
                 <Link to="/signUp">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/signUp"? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><TbLogin className='text-blue-50' /><div className="text-gray-50">Sign Up</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/signUp" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><TbLogin className='text-blue-50' /><div className="text-gray-50">Sign Up</div></div></div></Link>
               </>
             )}
             {isAuthenticated && (
@@ -168,12 +162,34 @@ function Home() {
       {/* This is for mobile left side ...............  */}
       <div className={`absolute bottom-0 w-full bg-gray-900 px-5 rounded-t-3xl transition-transform duration-500 z-50 ${bar ? "h-auto pt-8" : "h-0 pt-0"}`}>
         <div className="lg:w-[18%] md:w-[28%] h-full rounded-md flex flex-col gap-4 md:hidden">
-          <a href="https://www.linkedin.com/in/naitik2/" target='_blank'>
-            <div className="rounded-md p-3 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialLinkedin className='text-blue-500' /><div className="text-gray-300">Linkedin</div></div></div></a>
-          <a href="https://github.com/Naitik2408" target='_blank'>
-            <div className="rounded-md p-3 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialGithub className=' text-purple-500' /><div className="text-gray-300">Github</div></div></div></a>
-          <a href="https://www.instagram.com/naitik7324/" target='_blank'>
-            <div className="rounded-md p-3 px-4 cursor-pointer text-gray-400 font-normal text-sm border-[1px] border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><SlSocialInstagram className='text-orange-500' /><div className="text-gray-300">Instagram</div></div></div></a>
+
+
+          <Link onClick={handleBar} to="/">
+            <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><ImCommand className='text-blue-50' /><div className="text-gray-50">Portfolio</div></div></div></Link>
+          <Link onClick={handleBar} to="/blog">
+            <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${(location.pathname.startsWith("/blog")) ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuAirplay className='text-gray-50' /><div className="text-gray-50">Blog</div></div></div></Link>
+          {(isAuthenticated && user.role == 'admin') && (
+            <>
+              <Link onClick={handleBar} to="/dashboard">
+                <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/dashboard" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLayoutDashboard className='text-blue-50' /><div className="text-gray-50">Dashboard</div></div></div></Link>
+            </>
+          )}
+          {!isAuthenticated && (
+            <>
+              <Link onClick={handleBar} to="/login">
+                <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/login" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLogIn className='text-blue-50' /><div className="text-gray-50">Login</div></div></div></Link>
+              <Link onClick={handleBar} to="/signUp">
+                <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/signUp" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><TbLogin className='text-blue-50' /><div className="text-gray-50">Sign Up</div></div></div></Link>
+            </>
+          )}
+          {isAuthenticated && (
+            <>
+              <div onClick={handleLogout} className="rounded-md p-2 px-4 cursor-pointer hover:bg-red-500 text-gray-400 font-normal text-sm  border-gray-600 flex gap-2 group"><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><AiOutlineLogout className='text-blue-50' /><div className="text-blue-50">Logout</div></div></div>
+            </>
+          )}
+
+
+
           <div className="w-full h-96 bg-black rounded-md p-3 relative overflow-hidden">
             <div className='text-white flex items-center gap-3 text-xl'>
               <IoLogoGithub />

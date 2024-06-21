@@ -24,8 +24,8 @@ function SingleBlog() {
 
 
   return (
-    <div className='flex flex-col px-20 py-5'>
-      <div className='text-center flex flex-col gap-4 px-32'>
+    <div className='flex flex-col md:px-20 py-5'>
+      <div className='text-center flex flex-col gap-4 px-5 md:px-32'>
         <div className='text-3xl font-semibold text-gray-50'>{blog.title}</div>
         <div className='text-gray-200 font-thin'>" Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus beatae cupiditate iste accusamus nobis sunt labore quibusdam tempore totam! Nesciunt dolorum in aut laboriosam quidem! Fugiat voluptatum ipsam rem voluptatem! "</div>
       </div>

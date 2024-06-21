@@ -74,9 +74,9 @@ function Portfolio() {
           </div>
 
           {/* This is github Repository.....................  */}
-          <div className='my-10 p-3 bg-black rounded-md'>
+          <div className='my-10 p-3 bg-black rounded-md overflow-x-auto'>
             <div className='text-white text-xl'><IoLogoGithub /></div>
-            <div className='w-full h-48 mt-9 flex gap-3'>
+            <div className='w-fit h-48 mt-9 flex gap-3'>
               <div className='w-80 h-full p-2 border border-gray-900 rounded-lg bg-gray-950 px-4'>
                 <div className='flex items-start gap-2 h-[20%]'>
                   <img src={leetcode} alt="" className='w-6' />

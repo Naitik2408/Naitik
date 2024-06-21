@@ -53,7 +53,7 @@ function SignUp() {
   return (
     <div className='w-full min-h-full flex justify-center items-center'>
       <form onSubmit={handleSubmit}>
-        <div className='p-5 bg-gray-50 rounded-md w-96'>
+        <div className='p-5 bg-gray-50 rounded-md w-80 md:w-96'>
           <label htmlFor="fullName">Full Name</label><br />
           <input
             type="text"
