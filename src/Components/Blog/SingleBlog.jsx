@@ -33,8 +33,6 @@ function SingleBlog() {
         <div className=' rounded-md overflow-hidden max-h-[70vh]'><img src={blog.coverImage} alt="blog image" /></div>
       </div>
       <div>
-        {/* <div className='text-xl font-semibold text-gray-50'>{blog.title}</div> */}
-        {/* <div className='text-gray-200'>{blog.content}</div> */}
         <div className='text-gray-200' dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }}></div>
       </div>
       <div className='mt-32'>

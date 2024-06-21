@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { fetchData, postData } from '../requestData'
 import { useNavigate } from 'react-router-dom';
+import { showAlert } from '../Redux/alertSlice';
+import { useDispatch } from 'react-redux';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -24,7 +26,9 @@ function Dashboard() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingUser, setIsLoadingUser] = useState(false);
   const [isLoadingPost, setIsLoadingPost] = useState(false);
+  const [deletingPostId, setDeletingPostId] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleAddPost = useCallback(async (e) => {
     e.preventDefault();
@@ -38,9 +42,11 @@ function Dashboard() {
     try {
       await postData(`${import.meta.env.VITE_API_URL}/api/v1/admin/generatePost`, formData);
       console.log("post added sucessfully")
+      dispatch(showAlert('Post added successfully'));
       setRefetchPosts(prev => !prev);
     } catch (error) {
       console.error('Failed to add post:', error.message);
+      dispatch(showAlert('Failed to add post'));
     } finally {
       setIsLoading(false);
     }
@@ -48,12 +54,17 @@ function Dashboard() {
 
 
   const handleDeletePost = useCallback(async (postId) => {
+    setDeletingPostId(postId);
     try {
       const response = await postData(`${import.meta.env.VITE_API_URL}/api/v1/admin/deletePost`, { _id: postId });
       console.log('Post deleted successfully:', response);
+      dispatch(showAlert('Post deleted successfully')); 
       setRefetchPosts(prev => !prev);
     } catch (error) {
       console.error('Failed to delete post:', error.message);
+      dispatch(showAlert('Failed to delete post')); 
+    } finally {
+      setDeletingPostId(null);
     }
   });
 
@@ -68,7 +79,7 @@ function Dashboard() {
       .catch(error => {
         console.error('Error fetching data:', error);
         navigate('/');
-      }).finally(()=>{
+      }).finally(() => {
         setIsLoadingUser(false)
       })
 
@@ -84,7 +95,7 @@ function Dashboard() {
         console.log("able to fetch post")
       })
       .catch(error => console.error('Error:', error))
-      .finally(()=>{
+      .finally(() => {
         setIsLoadingPost(false)
       });
 
@@ -128,68 +139,80 @@ function Dashboard() {
             <div className='bg-[#242527] p-2 px-4 shadow-md shadow-[#2c2c2d] rounded-md text-gray-100 cursor-pointer hover:bg-[#1a1b1c]'>Add Post</div>
           </a>
         </div>
-        {isLoadingPost? 
-        <div className='w-full h-[60vh]'><Loader/></div> : 
-        <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
-        <thead className='text-gray-50 font-semibold'>
-          <tr className='border-b border-[#6b6b6c]'>
-            <td className='p-3'>So.no</td>
-            <td className='p-3'>Title</td>
-            <td className='p-3'>Image</td>
-            {/* <td className='p-3'>Content</td> */}
-            <td className='p-3'>Created by</td>
-            <td className='p-3'>Delete</td>
-            <td className='p-3'>Edit</td>
-          </tr>
-        </thead>
-        <tbody>
-          {allPosts.map((post, i) => (
-            <tr className='border-b border-[#474747]' key={post._id}>
-              <td className='p-3 px-3 text-sm max-w-32'>{i + 1}</td>
-              <td className='p-3 px-3 text-sm max-w-32 line-clamp-1 leading-[40px]'>{post.title}</td>
-              <td className='p-3 px-3 text-sm max-w-32'><div className='w-10 h-10 overflow-hidden rounded-full'><img src={post.coverImage} alt="" className='w-full  h-full object-cover' /></div></td>
-              {/* <td className='pt-3 text-sm max-w-32 '>{post.content}</td> */}
-              <td className='p-3 px-3 text-sm max-w-32'>{post.authorId.username}</td>
-              <td className='p-3 px-3 text-sm max-w-32'><button className='bg-red-500 p-2 rounded-md hover:bg-red-400' onClick={() => handleDeletePost(post._id)}><RiDeleteBinLine /></button></td>
-              <td className='p-3 px-3 py-2'><button className='bg-[#685CFE] p-2 rounded-md'><FiEdit /></button></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        {isLoadingPost ?
+          <div className='w-full h-[60vh]'><Loader /></div> :
+          <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
+            <thead className='text-gray-50 font-semibold'>
+              <tr className='border-b border-[#6b6b6c]'>
+                <td className='p-3'>So.no</td>
+                <td className='p-3'>Title</td>
+                <td className='p-3'>Image</td>
+                {/* <td className='p-3'>Content</td> */}
+                <td className='p-3'>Created by</td>
+                <td className='p-3'>Delete</td>
+                <td className='p-3'>Edit</td>
+              </tr>
+            </thead>
+            <tbody>
+              {allPosts.map((post, i) => (
+                <tr className='border-b border-[#474747]' key={post._id}>
+                  <td className='p-3 px-3 text-sm max-w-32'>{i + 1}</td>
+                  <td className='p-3 px-3 text-sm max-w-32 line-clamp-1 leading-[40px]'>{post.title}</td>
+                  <td className='p-3 px-3 text-sm max-w-32'><div className='w-10 h-10 overflow-hidden rounded-full'><img src={post.coverImage} alt="" className='w-full  h-full object-cover' /></div></td>
+                  {/* <td className='pt-3 text-sm max-w-32 '>{post.content}</td> */}
+                  <td className='p-3 px-3 text-sm max-w-32'>{post.authorId.username}</td>
+
+                  <td className='p-3 px-3 text-sm max-w-32'>
+                    {deletingPostId === post._id ? (
+                      <div className="w-fit flex justify-center items-center">
+                        <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-blue-500"></div>
+                      </div>
+                    ) : (
+                      <button className='bg-red-500 p-2 rounded-md hover:bg-red-400' onClick={() => handleDeletePost(post._id)}>
+                        <RiDeleteBinLine />
+                      </button>
+                    )}
+                  </td>
+
+                  <td className='p-3 px-3 py-2'><button className='bg-[#685CFE] p-2 rounded-md'><FiEdit /></button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         }
       </div>
 
 
       <div className='mt-20 bg-[#3A3B3D] p-6 rounded-lg overflow-x-auto'>
         <div className='text-2xl font-semibold text-white mb-2'>Users</div>
-        {isLoadingUser? 
-        <div className='w-full h-[60vh]'><Loader/></div> :
-        <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
-          <thead className='text-gray-50 font-semibold'>
-            <tr className='border-b border-[#6b6b6c]'>
-              <td className='p-3'>So.no</td>
-              <td className='p-3'>Name</td>
-              <td className='p-3'>userName</td>
-              <td className='p-3'>Email</td>
-              <td className='p-3'>Role</td>
-              <td className='p-3'>Delete</td>
-              <td className='p-3'>Edit</td>
-            </tr>
-          </thead>
-          <tbody>
-            {allUsers.map((user, i) => (
-              <tr className='border-b border-[#474747]' key={user._id}>
-                <td className='p-3 text-sm'>{i + 1}</td>
-                <td className='p-3 text-sm'>{user.fullName}</td>
-                <td className='p-3 text-sm'>{user.username}</td>
-                <td className='p-3 text-sm'>{user.email}</td>
-                <td className={`p-3 text-sm ${user.role === "user" ? "text-green-400" : "text-orange-400"}`}>{user.role}</td>
-                <td className='p-3 text-sm'><button className='bg-red-500 p-2 rounded-md hover:bg-red-400'><RiDeleteBinLine /></button></td>
-                <td className='p-3 text-sm'><button className='bg-[#685CFE] p-2 rounded-md'><FiEdit /></button></td>
+        {isLoadingUser ?
+          <div className='w-full h-[60vh]'><Loader /></div> :
+          <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
+            <thead className='text-gray-50 font-semibold'>
+              <tr className='border-b border-[#6b6b6c]'>
+                <td className='p-3'>So.no</td>
+                <td className='p-3'>Name</td>
+                <td className='p-3'>userName</td>
+                <td className='p-3'>Email</td>
+                <td className='p-3'>Role</td>
+                <td className='p-3'>Delete</td>
+                <td className='p-3'>Edit</td>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {allUsers.map((user, i) => (
+                <tr className='border-b border-[#474747]' key={user._id}>
+                  <td className='p-3 text-sm'>{i + 1}</td>
+                  <td className='p-3 text-sm'>{user.fullName}</td>
+                  <td className='p-3 text-sm'>{user.username}</td>
+                  <td className='p-3 text-sm'>{user.email}</td>
+                  <td className={`p-3 text-sm ${user.role === "user" ? "text-green-400" : "text-orange-400"}`}>{user.role}</td>
+                  <td className='p-3 text-sm'><button className='bg-red-500 p-2 rounded-md hover:bg-red-400'><RiDeleteBinLine /></button></td>
+                  <td className='p-3 text-sm'><button className='bg-[#685CFE] p-2 rounded-md'><FiEdit /></button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         }
       </div>
 
@@ -241,12 +264,12 @@ function Dashboard() {
               className='bg-transparent border-b text-gray-50 border-b-gray-600 p-1 w-full outline-none'
             /><br /><br />
             <label htmlFor="content" className='text-gray-200 '>Content</label><br /><br />
-            <ReactQuill 
-            className='text-gray-100' 
-            theme="snow" 
-            value={postContent} 
-            required
-            onChange={(content, delta, source, editor) => setPostContent(content)} 
+            <ReactQuill
+              className='text-gray-100'
+              theme="snow"
+              value={postContent}
+              required
+              onChange={(content, delta, source, editor) => setPostContent(content)}
             />
 
 
