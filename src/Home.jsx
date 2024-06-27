@@ -68,11 +68,11 @@ function Home() {
 
       {/* This is navbar................  */}
       <div className="w-full md:h-[8%] h-[7%] flex lg:px-10 items-center justify-between shadow-sm bg-[#242527] px-3">
-        <div className="flex gap-3 items-center">
+        <Link to={'/'} className="flex gap-3 items-center">
           <img src={icon} alt="" className='md:w-9 w-7' />
           <div className="w-3 h-3 bg-[#685CFE] rounded-full"></div>
           <div className="w-3 h-3 bg-[#685CFE] rounded-full"></div>
-        </div>
+        </Link>
         <div className='text-gray-300 md:hidden' onClick={handleBar}>{bar ? <RxCross1 /> : <SlMenu />}</div>
       </div>
 

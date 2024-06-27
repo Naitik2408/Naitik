@@ -140,7 +140,7 @@ function Dashboard() {
           </a>
         </div>
         {isLoadingPost ?
-          <div className='w-full h-[60vh]'><Loader /></div> :
+          <div className='w-full'><Loader /></div> :
           <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
             <thead className='text-gray-50 font-semibold'>
               <tr className='border-b border-[#6b6b6c]'>
@@ -186,7 +186,7 @@ function Dashboard() {
       <div className='mt-20 bg-[#3A3B3D] p-6 rounded-lg overflow-x-auto'>
         <div className='text-2xl font-semibold text-white mb-2'>Users</div>
         {isLoadingUser ?
-          <div className='w-full h-[60vh]'><Loader /></div> :
+          <div className='w-full'><Loader /></div> :
           <table className='text-gray-200 w-full max-h-[60vh] overflow-y-auto'>
             <thead className='text-gray-50 font-semibold'>
               <tr className='border-b border-[#6b6b6c]'>
