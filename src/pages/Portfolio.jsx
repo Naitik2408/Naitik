@@ -1,6 +1,3 @@
-
-
-
 // React icons 
 import { IoLogoGithub } from "react-icons/io5";
 
@@ -42,9 +39,9 @@ function Portfolio() {
                 <div className='flex items-center gap-2 '><img src={gmail} alt="" className='w-6' /><div className='bg-gray-300/50 px-2 rounded-md hover:bg-gray-300 cursor-pointer text-gray-800 gmail'>naitikkumarofficial2408@gmail.com</div></div>
               </div>
             </div>
-            <div className='w-full h-full overflow-hidden absolute top-0 bottom-0 left-0 -z-0'>
+            <div className='w-full h-full overflow-hidden absolute top-0 bottom-0 left-0 -z-0 '>
               <video src={profileVideo1} autoPlay muted loop className='w-full h-full object-cover' ></video>
-              <img src={profileVideoImage} alt="" className='w-full h-full object-cover' />
+              {/* <img src={profileVideoImage} alt="" className='w-full h-full object-cover' /> */}
             </div>
           </div>
 
