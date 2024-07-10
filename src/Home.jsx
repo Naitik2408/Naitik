@@ -86,21 +86,54 @@ function Home() {
         <div className="lg:w-[18%] md:w-[28%] h-full gap-3 rounded-md md:flex flex-col hidden">
           <div className='flex flex-col gap-1 w-full h-[38%]'>
             <Link to="/">
-              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><ImCommand className='text-blue-50' /><div className="text-gray-50">Portfolio</div></div></div></Link>
+              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex justify-between items-center gap-2 group ${location.pathname === "/" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}>
+                <div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center">
+                  <ImCommand className='text-blue-50' />
+                  <div className="text-gray-50">Portfolio</div>
+                </div>
+                <div className={`size-1.5 bg-white animate-pulse rounded-full bg-info shadow-[0_0_12px] shadow-info ml-auto ${location.pathname === "/"? 'block': 'hidden'}`}></div>
+              </div>
+            </Link>
             <Link to="/blog">
-              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${(location.pathname.startsWith("/blog")) ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuAirplay className='text-gray-50' /><div className="text-gray-50">Blog</div></div></div></Link>
+              <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex justify-between items-center gap-2 group ${(location.pathname.startsWith("/blog")) ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}>
+                <div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center">
+                  <LuAirplay className='text-gray-50' />
+                  <div className="text-gray-50">Blog</div>
+                </div>
+                <div className={`size-1.5 bg-white animate-pulse rounded-full bg-info shadow-[0_0_12px] shadow-info ml-auto ${(location.pathname.startsWith("/blog"))? 'block': 'hidden'}`}></div>
+              </div>
+            </Link>
             {(isAuthenticated && user.role == 'admin') && (
               <>
                 <Link to="/dashboard">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/dashboard" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLayoutDashboard className='text-blue-50' /><div className="text-gray-50">Dashboard</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex justify-between items-center gap-2 group ${location.pathname === "/dashboard" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}>
+                    <div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLayoutDashboard className='text-blue-50' />
+                      <div className="text-gray-50">Dashboard</div>
+                    </div>
+                    <div className={`size-1.5 bg-white animate-pulse rounded-full bg-info shadow-[0_0_12px] shadow-info ml-auto ${location.pathname === "/dashboard"? 'block': 'hidden'}`}></div>
+                  </div>
+                </Link>
               </>
             )}
             {!isAuthenticated && (
               <>
                 <Link to="/login">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/login" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLogIn className='text-blue-50' /><div className="text-gray-50">Login</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex justify-between items-center gap-2 group ${location.pathname === "/login" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}>
+                    <div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><LuLogIn className='text-blue-50' />
+                      <div className="text-gray-50">Login</div>
+                    </div>
+                    <div className={`size-1.5 bg-white animate-pulse rounded-full bg-info shadow-[0_0_12px] shadow-info ml-auto ${location.pathname === "/login"? 'block': 'hidden'}`}></div>
+                  </div>
+                </Link>
                 <Link to="/signUp">
-                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex gap-2 group ${location.pathname === "/signUp" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}><div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center"><TbLogin className='text-blue-50' /><div className="text-gray-50">Sign Up</div></div></div></Link>
+                  <div className={`rounded-md p-2 px-4 cursor-pointer text-gray-50 font-normal text-sm flex justify-between items-center gap-2 group ${location.pathname === "/signUp" ? "bg-[#685CFE]" : "hover:bg-[#3A3B3D]"}`}>
+                    <div className=" transition-transform duration-300 group-hover:translate-x-2 flex gap-2 items-center">
+                      <TbLogin className='text-blue-50' />
+                      <div className="text-gray-50">Sign Up</div>
+                    </div>
+                    <div className={`size-1.5 bg-white animate-pulse rounded-full bg-info shadow-[0_0_12px] shadow-info ml-auto ${location.pathname === "/signUp"? 'block': 'hidden'}`}></div>
+                  </div>
+                </Link>
               </>
             )}
             {isAuthenticated && (
