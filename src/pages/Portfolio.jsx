@@ -52,9 +52,9 @@ function Portfolio() {
           </div>
           <div className="text-sm font-thin text-gray-400">"More then just a creative person, I'm a problem solver than can help your company in numerous ways"</div>
           <div className="flex gap-5 text-xl md:text-3xl">
-            <div className=" cursor-pointer bg-black text-white rounded-lg p-1 shadow-md shadow-gray-900"><IoLogoGithub/></div>
-            <div className=" cursor-pointer bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-lg p-1 shadow-md shadow-gray-900"><FaInstagram/></div>
-            <div className=" cursor-pointer bg-blue-700 text-white rounded-lg p-1 shadow-md shadow-gray-900"><FaLinkedinIn/> </div>
+            <a href="https://github.com/Naitik2408" target="_blank" className=" cursor-pointer bg-black text-white rounded-lg p-1 shadow-md shadow-gray-900"><IoLogoGithub /></a>
+            <a href="https://www.instagram.com/naitik7324?igsh=NmNzYXRjdnZjZTNk" target="_blank" className=" cursor-pointer bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white rounded-lg p-1 shadow-md shadow-gray-900"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/in/naitik2/" target="_blank" className=" cursor-pointer bg-blue-700 text-white rounded-lg p-1 shadow-md shadow-gray-900"><FaLinkedinIn /> </a>
           </div>
         </div>
       </div>
