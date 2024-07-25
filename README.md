@@ -31,6 +31,20 @@ To get started with contributing, please follow these steps:
     ```sh
     git clone https://github.com/Naitik2408/Naitik.git
     ```
+3. **Change directory**: Navigate to the cloned repository folder.
+    ```sh
+    cd Naitik
+    ```
+
+3. **Install dependencies**: Install the necessary dependencies using npm or pnpm.
+    ```sh
+    npm install
+    ```
+    or
+    ```sh
+    pnpm install
+    ```
+
 3. **Create a branch**: Create a new branch for your changes.
     ```sh
     git checkout -b your-branch-name
