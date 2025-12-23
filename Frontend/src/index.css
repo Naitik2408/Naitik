@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700,800&display=swap');
+
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0f172a; /* slate-900 equivalent */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Background pattern and gradients */
+.bg-grid-white {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0 0 L100 0 L100 100 L0 100Z' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+.bg-grid-slate {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0 0 L100 0 L100 100 L0 100Z' fill='none' stroke='rgb(148 163 184)' stroke-width='0.5'/%3E%3C/svg%3E");
+}
+
+/* Animation keyframes */
+@keyframes border-pulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 3s infinite;
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+
+/* Hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Consistent background for homepage sections */
+.homepage-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom right, #0f172a, #1e293b, #312e81);
+  z-index: -10;
+}
+
+.homepage-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M0 0 L100 0 L100 100 L0 100Z' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  opacity: 0.05;
+  z-index: -9;
+  pointer-events: none;
+}
+
+/* Glow effects for the background */
+.homepage-glow {
+  position: absolute;
+  border-radius: 100%;
+  filter: blur(90px);
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: -8;
+}
+
+.glow-cyan {
+  background-color: #22d3ee; /* cyan-400 */
+  width: 24rem;
+  height: 24rem;
+}
+
+.glow-fuchsia {
+  background-color: #e879f9; /* fuchsia-400 */
+  width: 20rem;
+  height: 20rem;
+}
+
+.glow-blue {
+  background-color: #60a5fa; /* blue-400 */
+  width: 18rem;
+  height: 18rem;
+}
+
+/* Fixed Header background class */
+.header-background-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom right, #0f172a, #1e293b, #312e81);
+  z-index: -10;
+}
+
+/* Gradient text utility classes */
+.text-gradient-white-cyan-indigo {
+  background-image: linear-gradient(to right, white, #bae6fd, #e0e7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-indigo-cyan {
+  background-image: linear-gradient(to right, #4f46e5, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
