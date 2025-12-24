@@ -51,7 +51,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
     { name: "About", href: "/#about" },
     { name: "Skills", href: "/#skills" },
     { name: "Projects", href: "/#projects" },
-    { name: "Why Hire Me", href: "/#why-hire-me" },
+    { name: "WHM", href: "/#why-hire-me" },
     { name: "Resume", href: "/#resume" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/#contact" },
@@ -139,15 +139,13 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Floating header container */}
           <motion.div 
-            className={`mt-6 rounded-full transition-all duration-500 flex items-center justify-between ${
-              isHomePage ? "text-white" : "text-gray-800"
-            }`}
+            className="mt-6 rounded-full transition-all duration-500 flex items-center justify-between text-white"
             style={{
               padding: scrolled ? "0.75rem 1.25rem" : "1.25rem 1.25rem",
-              backgroundColor: scrolled ? "rgba(255, 255, 255, 0.1)" : "transparent",
-              backdropFilter: scrolled ? "blur(12px)" : "none",
-              border: scrolled ? "1px solid rgba(255, 255, 255, 0.2)" : "none",
-              boxShadow: scrolled ? "0 10px 15px -3px rgba(0, 0, 0, 0.05)" : "none"
+              backgroundColor: scrolled ? "rgba(15, 23, 42, 0.8)" : "rgba(15, 23, 42, 0.5)",
+              backdropFilter: "blur(12px)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              boxShadow: scrolled ? "0 10px 15px -3px rgba(0, 0, 0, 0.1)" : "none"
             }}
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -162,7 +160,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                 <div className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 backdrop-blur-md">
                   <Sparkles className="h-5 w-5 text-cyan-200" />
                 </div>
-                <span className={isHomePage ? "text-gradient-white-cyan-indigo" : "text-gradient-indigo-cyan" + " font-bold text-xl font-clash"}>
+                <span className="text-gradient-white-cyan-indigo font-bold text-xl font-clash">
                   Portfolio
                 </span>
               </Link>
@@ -176,11 +174,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                     <motion.div key={item.name} whileHover="hover" whileTap="tap" variants={navLinkVariants}>
                       {renderNavLink(
                         item,
-                        `px-4 py-2 text-sm font-medium transition-colors rounded-full ${
-                          isHomePage
-                            ? "text-indigo-100 hover:text-white hover:bg-white/10" 
-                            : "text-gray-600 hover:text-indigo-600 hover:bg-indigo-50"
-                        }`
+                        "px-4 py-2 text-sm font-medium transition-colors rounded-full text-indigo-100 hover:text-white hover:bg-white/10"
                       )}
                     </motion.div>
                   ))}
@@ -191,7 +185,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
             {/* Auth Buttons or User Menu */}
             <div className="hidden md:flex items-center space-x-3">
               {/* Recruiter Mode Toggle - Only on home page */}
-              {isHomePage && setRecruiterMode && (
+              {isHomePage && setRecruiterMode && typeof setRecruiterMode === 'function' && (
                 <motion.button
                   onClick={() => setRecruiterMode(!recruiterMode)}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all ${
@@ -205,7 +199,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                 >
                   <Briefcase className="h-4 w-4" />
                   <span className="text-sm font-medium">
-                    {recruiterMode ? "Recruiter Mode" : "Normal View"}
+                    {recruiterMode ? "Recruiter" : "Normal"}
                   </span>
                 </motion.button>
               )}
@@ -214,15 +208,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                 <div className="relative" ref={dropdownRef}>
                   <motion.button 
                     onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className={`flex items-center space-x-1 px-4 py-2 rounded-full transition-all hover:-translate-y-0.5 ${
-                      isHomePage
-                        ? "bg-white/10 text-white hover:bg-white/20" 
-                        : "bg-indigo-50 text-indigo-700 hover:bg-indigo-100"
-                    } backdrop-blur-md border ${
-                      isHomePage
-                        ? "border-white/20"
-                        : "border-indigo-100"
-                    }`}
+                    className="flex items-center space-x-1 px-4 py-2 rounded-full transition-all hover:-translate-y-0.5 bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20"
                     whileHover={{ y: -2 }}
                     whileTap={{ y: 0 }}
                   >
@@ -282,11 +268,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                   >
                     <Link
                       to="/login"
-                      className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                        isHomePage
-                          ? "text-indigo-100 hover:text-white border border-white/10 hover:bg-white/10" 
-                          : "text-gray-600 hover:text-indigo-600 border border-gray-200 hover:border-indigo-100 hover:bg-indigo-50"
-                      }`}
+                      className="px-4 py-2 text-sm font-medium rounded-full transition-all text-indigo-100 hover:text-white border border-white/10 hover:bg-white/10"
                     >
                       Log in
                     </Link>
@@ -297,11 +279,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                   >
                     <Link
                       to="/signup"
-                      className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                        isHomePage
-                          ? "bg-white text-indigo-600 hover:bg-indigo-50" 
-                          : "bg-gradient-to-r from-indigo-600 to-cyan-600 text-white"
-                      } shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30`}
+                      className="px-4 py-2 text-sm font-medium rounded-full transition-all bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30"
                     >
                       Sign up
                     </Link>
@@ -314,15 +292,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`inline-flex items-center justify-center p-2 rounded-full ${
-                  isHomePage
-                    ? "bg-white/10 text-white hover:bg-white/20" 
-                    : "bg-indigo-50 text-indigo-600 hover:bg-indigo-100"
-                } backdrop-blur-md border ${
-                  isHomePage
-                    ? "border-white/20"
-                    : "border-indigo-100"
-                }`}
+                className="inline-flex items-center justify-center p-2 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/20"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -342,8 +312,8 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
             <motion.div 
               className="md:hidden backdrop-blur-lg"
               style={{
-                backgroundColor: isHomePage ? "rgba(15, 23, 42, 0.8)" : "rgba(255, 255, 255, 0.9)",
-                borderTop: isHomePage ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(243, 244, 246, 1)",
+                backgroundColor: "rgba(15, 23, 42, 0.95)",
+                borderTop: "1px solid rgba(255, 255, 255, 0.1)",
                 boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
                 overflow: "hidden"
               }}
@@ -361,18 +331,14 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                   >
                     {renderNavLink(
                       item,
-                      `block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                        isHomePage
-                          ? "text-white hover:bg-white/10" 
-                          : "text-gray-600 hover:text-indigo-600 hover:bg-indigo-50"
-                      }`,
+                      "block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors text-white hover:bg-white/10",
                       () => setMobileMenuOpen(false)
                     )}
                   </motion.div>
                 ))}
                 
                 {/* Recruiter Mode Toggle for mobile - Only on home page */}
-                {isHomePage && setRecruiterMode && (
+                {isHomePage && setRecruiterMode && typeof setRecruiterMode === 'function' && (
                   <motion.button
                     onClick={() => setRecruiterMode(!recruiterMode)}
                     className={`w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg transition-all ${
@@ -390,30 +356,14 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                 )}
                 
                 {/* Auth links for mobile */}
-                <div className="border-t pt-3 mt-3"
-                  style={{ 
-                    borderColor: isHomePage ? "rgba(255, 255, 255, 0.1)" : "rgba(243, 244, 246, 1)"
-                  }}
-                >
+                <div className="border-t border-white/10 pt-3 mt-3">
                   {isAuthenticated ? (
                     <>
-                      <div className="p-4 rounded-lg mb-2"
-                        style={{ 
-                          backgroundColor: isHomePage ? "rgba(255, 255, 255, 0.05)" : "rgba(238, 242, 255, 0.5)"
-                        }}
-                      >
-                        <p className="text-sm font-medium"
-                          style={{ 
-                            color: isHomePage ? "white" : "rgb(79, 70, 229)"
-                          }}
-                        >
+                      <div className="p-4 rounded-lg mb-2 bg-white/5">
+                        <p className="text-sm font-medium text-white">
                           {user?.name || 'User'}
                         </p>
-                        <p className="text-xs mt-0.5"
-                          style={{ 
-                            color: isHomePage ? "rgb(199, 210, 254)" : "rgb(107, 114, 128)"
-                          }}
-                        >
+                        <p className="text-xs mt-0.5 text-indigo-200">
                           {user?.email}
                         </p>
                       </div>
@@ -421,11 +371,7 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                       {isAdmin && (
                         <Link
                           to="/dashboard"
-                          className={`flex items-center px-4 py-2.5 text-sm font-medium rounded-lg ${
-                            isHomePage
-                              ? "text-white hover:bg-white/10" 
-                              : "text-gray-600 hover:text-indigo-600 hover:bg-indigo-50"
-                          }`}
+                          className="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-white hover:bg-white/10"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           <LayoutDashboard className="h-5 w-5 mr-3 text-indigo-500" />
@@ -437,17 +383,9 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                           handleLogout();
                           setMobileMenuOpen(false);
                         }}
-                        className={`flex items-center w-full text-left px-4 py-2.5 text-sm font-medium rounded-lg ${
-                          isHomePage
-                            ? "text-white hover:bg-white/10" 
-                            : "text-gray-600 hover:text-red-600 hover:bg-red-50"
-                        }`}
+                        className="flex items-center w-full text-left px-4 py-2.5 text-sm font-medium rounded-lg text-white hover:bg-white/10"
                       >
-                        <LogOut className={`h-5 w-5 mr-3 ${
-                          isHomePage
-                            ? "text-red-300"
-                            : "text-red-500"
-                        }`} />
+                        <LogOut className="h-5 w-5 mr-3 text-red-300" />
                         Sign out
                       </button>
                     </>
@@ -455,22 +393,14 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                     <div className="flex flex-col space-y-2">
                       <Link
                         to="/login"
-                        className={`block px-4 py-2.5 text-sm font-medium text-center rounded-lg transition-colors ${
-                          isHomePage
-                            ? "text-white border border-white/10 hover:bg-white/10" 
-                            : "text-gray-600 hover:text-indigo-600 bg-gray-50 hover:bg-indigo-50"
-                        }`}
+                        className="block px-4 py-2.5 text-sm font-medium text-center rounded-lg transition-colors text-white border border-white/10 hover:bg-white/10"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Log in
                       </Link>
                       <Link
                         to="/signup"
-                        className={`block px-4 py-2.5 text-sm font-medium text-center rounded-lg shadow-md shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all ${
-                          isHomePage
-                            ? "bg-white text-indigo-600" 
-                            : "bg-gradient-to-r from-indigo-600 to-cyan-600 text-white"
-                        }`}
+                        className="block px-4 py-2.5 text-sm font-medium text-center rounded-lg shadow-md shadow-cyan-500/10 hover:shadow-cyan-500/20 transition-all bg-gradient-to-r from-cyan-500 to-indigo-500 text-white"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         Sign up
