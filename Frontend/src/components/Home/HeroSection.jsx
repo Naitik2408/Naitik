@@ -31,6 +31,13 @@ const HeroSection = () => {
     console.log("Current site title:", siteTitle);
   }, [siteTitle]);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -160,18 +167,20 @@ const HeroSection = () => {
               className="flex flex-wrap gap-5 pt-6"
               variants={itemVariants}
             >
-              <a
-                href="#projects"
+              <button
+                type="button"
+                onClick={() => scrollToSection("resume")}
                 className="inline-flex items-center px-8 py-4 border-0 text-base font-medium rounded-xl text-white bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 transition-all duration-300 transform hover:-translate-y-1"
               >
-                View Projects <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
-              <a
-                href="#contact"
+                Resume <ArrowRight className="ml-2 h-4 w-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection("contact")}
                 className="inline-flex items-center px-8 py-4 border border-indigo-400/30 text-base font-medium rounded-xl text-white bg-indigo-900/30 hover:bg-indigo-900/50 backdrop-blur-md shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 Contact Me <Zap className="ml-2 h-4 w-4" />
-              </a>
+              </button>
             </motion.div>
           </div>
 

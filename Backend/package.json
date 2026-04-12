@@ -1,6 +1,7 @@
 {
   "name": "portfolio-backend",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {

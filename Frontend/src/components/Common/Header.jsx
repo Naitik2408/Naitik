@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Menu, X, LogOut, User, LayoutDashboard, ChevronDown, Github, Linkedin, Twitter, Sparkles, Briefcase } from "lucide-react";
+import { Menu, X, LogOut, User, LayoutDashboard, ChevronDown, Github, Linkedin, Twitter, Sparkles } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAppSelector, useAppDispatch } from "../../Redux/hooks";
 import { selectAuth, logout, selectIsAdmin } from "../../Redux/authSlice";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Header = ({ recruiterMode, setRecruiterMode }) => {
+const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +17,6 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
   const { isAuthenticated, user } = useAppSelector(selectAuth);
   const isAdmin = useAppSelector(selectIsAdmin);
   
-  // Only show recruiter toggle on home page
   const isHomePage = location.pathname === "/";
 
   // Detect scroll position for header styling
@@ -48,10 +47,8 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/#about" },
     { name: "Skills", href: "/#skills" },
     { name: "Projects", href: "/#projects" },
-    { name: "WHM", href: "/#why-hire-me" },
     { name: "Resume", href: "/#resume" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/#contact" },
@@ -184,26 +181,6 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
 
             {/* Auth Buttons or User Menu */}
             <div className="hidden md:flex items-center space-x-3">
-              {/* Recruiter Mode Toggle - Only on home page */}
-              {isHomePage && setRecruiterMode && typeof setRecruiterMode === 'function' && (
-                <motion.button
-                  onClick={() => setRecruiterMode(!recruiterMode)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all ${
-                    recruiterMode
-                      ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg shadow-cyan-500/30"
-                      : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
-                  } backdrop-blur-md`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  title={recruiterMode ? "Switch to Normal View" : "Switch to Recruiter View"}
-                >
-                  <Briefcase className="h-4 w-4" />
-                  <span className="text-sm font-medium">
-                    {recruiterMode ? "Recruiter" : "Normal"}
-                  </span>
-                </motion.button>
-              )}
-              
               {isAuthenticated ? (
                 <div className="relative" ref={dropdownRef}>
                   <motion.button 
@@ -336,24 +313,6 @@ const Header = ({ recruiterMode, setRecruiterMode }) => {
                     )}
                   </motion.div>
                 ))}
-                
-                {/* Recruiter Mode Toggle for mobile - Only on home page */}
-                {isHomePage && setRecruiterMode && typeof setRecruiterMode === 'function' && (
-                  <motion.button
-                    onClick={() => setRecruiterMode(!recruiterMode)}
-                    className={`w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg transition-all ${
-                      recruiterMode
-                        ? "bg-gradient-to-r from-cyan-500 to-indigo-500 text-white shadow-lg"
-                        : "bg-white/10 text-white hover:bg-white/20 border border-white/20"
-                    }`}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Briefcase className="h-4 w-4" />
-                    <span className="text-sm font-medium">
-                      {recruiterMode ? "Recruiter Mode ON" : "Switch to Recruiter Mode"}
-                    </span>
-                  </motion.button>
-                )}
                 
                 {/* Auth links for mobile */}
                 <div className="border-t border-white/10 pt-3 mt-3">

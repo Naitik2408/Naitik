@@ -14,7 +14,7 @@ Adds engineering depth to projects that don't have it yet.
 
 1. MongoDB must be running
 2. Backend environment variables configured in `.env` file
-3. Node.js and npm installed
+3. Node.js and pnpm installed
 
 ## Usage
 
@@ -76,7 +76,7 @@ If you want to **add** sample projects without deleting existing ones when using
 // await Project.deleteMany({});
 ```
 
-## Running from npm
+## Running from pnpm
 
 You can also add scripts to your `package.json`:
 
@@ -92,9 +92,9 @@ You can also add scripts to your `package.json`:
 Then run:
 
 ```bash
-npm run seed
+pnpm run seed
 # or
-npm run update-projects
+pnpm run update-projects
 ```
 
 ## Output Examples
