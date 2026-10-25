@@ -1,0 +1,21 @@
+{
+  "name": "monorepo-ssr",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "setup": "npm install",
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "start": "npm run start --prefix web",
+    "lint": "npm run lint --prefix web",
+    "typecheck": "npm run typecheck --prefix web"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6",
+    "knip": "^6.32.1"
+  },
+  "workspaces": [
+    "apps/*"
+  ]
+}
