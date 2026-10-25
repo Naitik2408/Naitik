@@ -170,12 +170,12 @@ export default function HomePage() {
 		<div className="min-h-screen bg-background text-foreground">
 			{/* Header */}
 			<header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-md">
-				<div className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-4 md:px-6">
-					<Pill className="shrink-0">
+				<div className="mx-auto flex max-w-[1440px] items-center justify-between gap-2 px-3 py-3 sm:gap-3 sm:px-4 sm:py-4 md:px-6">
+					<Pill className="shrink-0 text-[11px] px-3.5 py-2 sm:text-xs sm:px-5 sm:py-2.5">
 						Naitik Kumar
 						<span className="ml-2 hidden text-muted-foreground sm:inline">/ Full-Stack Developer</span>
 					</Pill>
-					<nav className="flex items-center gap-2 md:gap-3" aria-label="Primary">
+					<nav className="flex min-w-0 items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 sm:gap-2 md:gap-3" aria-label="Primary">
 						{[
 							{ label: 'Work', href: '#work' },
 							{ label: 'About', href: '#about' },
@@ -184,7 +184,7 @@ export default function HomePage() {
 							<a
 								key={item.label}
 								href={item.href}
-								className="inline-flex items-center rounded-full border border-border bg-card px-4 py-2.5 text-xs font-medium uppercase tracking-[0.12em] text-foreground transition-colors duration-200 hover:bg-foreground hover:text-background md:px-5"
+								className="inline-flex shrink-0 items-center rounded-full border border-border bg-card px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] text-foreground transition-colors duration-200 hover:bg-foreground hover:text-background sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.12em] md:px-5"
 							>
 								{item.label}
 							</a>
