@@ -46,11 +46,28 @@ const PROJECTS = [
 ];
 
 const SOCIALS = [
-	{ label: 'Dribbble', icon: Dribbble },
-	{ label: 'Instagram', icon: Instagram },
-	{ label: 'LinkedIn', icon: Linkedin },
-	{ label: 'Twitter', icon: Twitter },
+	{ label: 'WhatsApp', icon: WhatsAppIcon, href: 'https://wa.me/919060557296?text=Hi%20Naitik%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20website%20development%20project%20%2F%20service.' },
+	{ label: 'Instagram', icon: Instagram, href: 'https://instagram.com/naitikkr2408' },
+	{ label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/in/naitik2408' },
+	{ label: 'Twitter', icon: Twitter, href: 'https://x.com/naitik2408' },
 ];
+
+function WhatsAppIcon({ className = 'size-4' }) {
+	return (
+		<svg
+			className={className}
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		>
+			<path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+			<path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+		</svg>
+	);
+}
 
 function Pill({ children, className = '', ...props }) {
 	return (
@@ -391,8 +408,11 @@ export default function HomePage() {
 										{SOCIALS.map((social) => (
 											<a
 												key={social.label}
-												href="#contact"
+												href={social.href || '#contact'}
+												target={social.href ? '_blank' : undefined}
+												rel={social.href ? 'noopener noreferrer' : undefined}
 												aria-label={social.label}
+												title={social.label}
 												className="flex size-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors duration-200 hover:bg-white hover:text-[#141414]"
 											>
 												<social.icon className="size-4" />
