@@ -41,6 +41,7 @@ const PROJECTS = [
 		tags: 'Full Stack & Product',
 		year: '2026',
 		image: PROJECT_LAUNCHFAST,
+		href: 'https://launchfast.naitik.work/',
 	},
 ];
 
@@ -133,19 +134,32 @@ function CvCard() {
 	);
 }
 
-function ProjectImage({ src, alt, label, className = '' }) {
+function ProjectImage({ src, alt, label, href, className = '' }) {
+	const Wrapper = href ? 'a' : 'div';
+	const wrapperProps = href
+		? {
+				href,
+				target: '_blank',
+				rel: 'noopener noreferrer',
+		  }
+		: {};
+
 	return (
-		<div className={`group relative overflow-hidden rounded-3xl border border-border ${className}`}>
+		<Wrapper
+			{...wrapperProps}
+			className={`group relative block overflow-hidden rounded-3xl border border-border ${className}`}
+		>
 			<img
 				src={src}
 				alt={alt}
 				loading="lazy"
 				className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
 			/>
-			<span className="absolute bottom-4 left-4 inline-flex items-center rounded-full bg-white/85 px-4 py-2 text-xs font-medium text-foreground backdrop-blur-sm">
+			<span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/85 px-4 py-2 text-xs font-medium text-foreground backdrop-blur-sm transition-colors duration-200 group-hover:bg-white">
 				{label}
+				{href && <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />}
 			</span>
-		</div>
+		</Wrapper>
 	);
 }
 
@@ -249,6 +263,7 @@ export default function HomePage() {
 								src={PROJECT_LAUNCHFAST}
 								alt="Launchfast Next.js SaaS boilerplate website"
 								label="Launchfast — SaaS Boilerplate"
+								href="https://launchfast.naitik.work/"
 								className="h-full min-h-[300px]"
 							/>
 						</Reveal>
@@ -292,11 +307,9 @@ export default function HomePage() {
 						{PROJECTS.map((project, index) => (
 							<Reveal key={project.id} delay={index * 0.06}>
 								<a
-									href="#top"
-									onClick={(event) => {
-										event.preventDefault();
-										window.scrollTo({ top: 0, behavior: 'smooth' });
-									}}
+									href={project.href || '#top'}
+									target={project.href ? '_blank' : undefined}
+									rel={project.href ? 'noopener noreferrer' : undefined}
 									className="group flex items-center gap-5 border-b border-border px-2 py-5 transition-colors duration-200 hover:bg-card md:gap-8 md:px-4 md:py-7"
 								>
 									<span className="w-8 shrink-0 text-sm tabular-nums text-muted-foreground">
