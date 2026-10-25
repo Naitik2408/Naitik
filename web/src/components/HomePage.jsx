@@ -14,7 +14,7 @@ import {
 import Reveal from '@/components/Reveal';
 import CountUp from '@/components/CountUp';
 
-const AVATAR_URL = 'https://images.hostinger.com/55b39dfa-e1a3-42e3-8918-6ca5f790ad20.png';
+const AVATAR_URL = '/avatar.jpg';
 const PROJECT_LAUNCHFAST = '/launchfast-mockup.png';
 const PROJECT_WAYPOINT = 'https://images.hostinger.com/b55da466-c086-49ad-b47d-0c7c1d0429e8.png';
 const PROJECT_PULSEBOARD = 'https://images.hostinger.com/c290ea5c-f229-4e6c-9679-375959e37ea1.png';
