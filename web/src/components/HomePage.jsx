@@ -39,32 +39,8 @@ const PROJECTS = [
 		title: 'Launchfast',
 		category: 'Next.js SaaS Boilerplate',
 		tags: 'Full Stack & Product',
-		year: '2025',
+		year: '2026',
 		image: PROJECT_LAUNCHFAST,
-	},
-	{
-		id: '02',
-		title: 'Waypoint',
-		category: 'Mobility & Navigation',
-		tags: 'Product Design',
-		year: '2024',
-		image: PROJECT_WAYPOINT,
-	},
-	{
-		id: '03',
-		title: 'Pulseboard',
-		category: 'Analytics Dashboard',
-		tags: 'SaaS Platform',
-		year: '2024',
-		image: PROJECT_PULSEBOARD,
-	},
-	{
-		id: '04',
-		title: 'Haven',
-		category: 'Mindfulness App',
-		tags: 'UX Research & UI',
-		year: '2023',
-		image: PROJECT_HAVEN,
 	},
 ];
 
@@ -305,9 +281,7 @@ export default function HomePage() {
 						<div className="mb-8 flex items-end justify-between">
 							<h2 className="text-3xl font-medium tracking-[-0.02em] md:text-5xl">
 								Selected Work
-								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">
-									(04)
-								</span>
+								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(01)</span>
 							</h2>
 							<span className="hidden text-sm text-muted-foreground md:block">
 								2023 — 2025
@@ -366,9 +340,9 @@ export default function HomePage() {
 					<Reveal>
 						<div className="grid overflow-hidden rounded-3xl border border-border bg-card sm:grid-cols-3 sm:divide-x sm:divide-border">
 							{[
-								{ value: 8, suffix: '+', label: 'Years of experience' },
-								{ value: 40, suffix: '+', label: 'Products shipped' },
-								{ value: 12, suffix: '', label: 'Design awards' },
+								{ value: 2, suffix: '+', label: 'Years of experience' },
+								{ value: 15, suffix: '+', label: 'Products shipped' },
+								{ value: 6, suffix: '', label: 'Successful contributions' },
 							].map((stat) => (
 								<div key={stat.label} className="border-b border-border p-8 last:border-b-0 sm:border-b-0 md:p-10">
 									<div className="text-5xl font-medium tracking-[-0.03em] tabular-nums md:text-6xl">
@@ -394,11 +368,11 @@ export default function HomePage() {
 								</h2>
 								<div className="mt-10 flex flex-wrap items-center gap-4">
 									<a
-										href="mailto:hello@alicemercer.design"
+										href="mailto:naitikkumar2408@gmail.com"
 										className="inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-[#141414] transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98]"
 									>
 										<Mail className="size-4" />
-										hello@alicemercer.design
+										naitikkumar2408@gmail.com
 									</a>
 									<div className="flex items-center gap-2.5">
 										{SOCIALS.map((social) => (
@@ -415,8 +389,8 @@ export default function HomePage() {
 								</div>
 							</div>
 							<div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 px-8 py-5 text-xs text-white/50 md:px-14">
-								<span>© {year} Alice Mercer. All rights reserved.</span>
-								<span>Copenhagen, Denmark</span>
+								<span>© {year} Naitik Kumar. All rights reserved.</span>
+								<span>India</span>
 								<a
 									href="#"
 									className="inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-white"
