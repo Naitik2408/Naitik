@@ -15,7 +15,7 @@ import Reveal from '@/components/Reveal';
 import CountUp from '@/components/CountUp';
 
 const AVATAR_URL = 'https://images.hostinger.com/55b39dfa-e1a3-42e3-8918-6ca5f790ad20.png';
-const PROJECT_LOOMA = 'https://images.hostinger.com/71642e6b-f0df-458f-8d44-0a7a1c30a370.png';
+const PROJECT_LAUNCHFAST = '/launchfast-mockup.png';
 const PROJECT_WAYPOINT = 'https://images.hostinger.com/b55da466-c086-49ad-b47d-0c7c1d0429e8.png';
 const PROJECT_PULSEBOARD = 'https://images.hostinger.com/c290ea5c-f229-4e6c-9679-375959e37ea1.png';
 const PROJECT_HAVEN = 'https://images.hostinger.com/b5de57f6-bb27-4952-b052-c858b4b2ddc8.png';
@@ -36,11 +36,11 @@ const EXPERTISE = [
 const PROJECTS = [
 	{
 		id: '01',
-		title: 'Looma',
-		category: 'E-commerce Mobile App',
-		tags: 'UX/UI Design',
+		title: 'Launchfast',
+		category: 'Next.js SaaS Boilerplate',
+		tags: 'Full Stack & Product',
 		year: '2025',
-		image: PROJECT_LOOMA,
+		image: PROJECT_LAUNCHFAST,
 	},
 	{
 		id: '02',
@@ -270,9 +270,9 @@ export default function HomePage() {
 
 						<Reveal delay={0.15} className="flex-1">
 							<ProjectImage
-								src={PROJECT_LOOMA}
-								alt="Looma e-commerce mobile app interface"
-								label="Looma — E-commerce App"
+								src={PROJECT_LAUNCHFAST}
+								alt="Launchfast Next.js SaaS boilerplate website"
+								label="Launchfast — SaaS Boilerplate"
 								className="h-full min-h-[300px]"
 							/>
 						</Reveal>
