@@ -52,6 +52,15 @@ const PROJECTS = [
 		image: PROJECT_KIS,
 		href: 'https://krishnainfotechsolution.com/',
 	},
+	{
+		id: '03',
+		title: 'LiftMyGrade',
+		category: 'EdTech & Academic Research Platform',
+		tags: 'Full Stack & Platform Architecture',
+		year: '2025',
+		image: PROJECT_LIFTMYGRADE,
+		href: 'https://liftmygrade.com/',
+	},
 ];
 
 const SOCIALS = [
@@ -323,7 +332,7 @@ export default function HomePage() {
 						<div className="mb-8 flex items-end justify-between">
 							<h2 className="text-3xl font-medium tracking-[-0.02em] md:text-5xl">
 								Selected Work
-								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(02)</span>
+								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(03)</span>
 							</h2>
 							<span className="hidden text-sm text-muted-foreground md:block">
 								2023 — 2025
