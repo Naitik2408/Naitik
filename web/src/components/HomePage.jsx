@@ -17,6 +17,7 @@ import CountUp from '@/components/CountUp';
 const AVATAR_URL = '/avatar.jpg';
 const PROJECT_LAUNCHFAST = '/launchfast-mockup.png';
 const PROJECT_KIS = '/kis-mockup.png';
+const PROJECT_LIFTMYGRADE = '/liftmygrade-mockup.png';
 const PROJECT_PULSEBOARD = 'https://images.hostinger.com/c290ea5c-f229-4e6c-9679-375959e37ea1.png';
 const PROJECT_HAVEN = 'https://images.hostinger.com/b5de57f6-bb27-4952-b052-c858b4b2ddc8.png';
 
