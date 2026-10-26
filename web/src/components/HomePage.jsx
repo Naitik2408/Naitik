@@ -16,7 +16,7 @@ import CountUp from '@/components/CountUp';
 
 const AVATAR_URL = '/avatar.jpg';
 const PROJECT_LAUNCHFAST = '/launchfast-mockup.png';
-const PROJECT_WAYPOINT = 'https://images.hostinger.com/b55da466-c086-49ad-b47d-0c7c1d0429e8.png';
+const PROJECT_KIS = '/kis-mockup.png';
 const PROJECT_PULSEBOARD = 'https://images.hostinger.com/c290ea5c-f229-4e6c-9679-375959e37ea1.png';
 const PROJECT_HAVEN = 'https://images.hostinger.com/b5de57f6-bb27-4952-b052-c858b4b2ddc8.png';
 
@@ -42,6 +42,15 @@ const PROJECTS = [
 		year: '2026',
 		image: PROJECT_LAUNCHFAST,
 		href: 'https://launchfast.naitik.work/',
+	},
+	{
+		id: '02',
+		title: 'Krishna Infotech Solutions',
+		category: 'Enterprise Tech Hardware & Solutions',
+		tags: 'Frontend & UI Engineering',
+		year: '2025',
+		image: PROJECT_KIS,
+		href: 'https://krishnainfotechsolution.com/',
 	},
 ];
 
@@ -298,9 +307,10 @@ export default function HomePage() {
 						</div>
 						<Reveal delay={0.2} className="flex-1">
 							<ProjectImage
-								src={PROJECT_WAYPOINT}
-								alt="Waypoint navigation app interface with route map"
-								label="Waypoint — Mobility App"
+								src={PROJECT_KIS}
+								alt="Krishna Infotech Solutions enterprise hardware & laptop website"
+								label="Krishna Infotech Solutions"
+								href="https://krishnainfotechsolution.com/"
 								className="h-full min-h-[420px]"
 							/>
 						</Reveal>
@@ -313,7 +323,7 @@ export default function HomePage() {
 						<div className="mb-8 flex items-end justify-between">
 							<h2 className="text-3xl font-medium tracking-[-0.02em] md:text-5xl">
 								Selected Work
-								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(01)</span>
+								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(02)</span>
 							</h2>
 							<span className="hidden text-sm text-muted-foreground md:block">
 								2023 — 2025
