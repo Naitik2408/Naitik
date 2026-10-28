@@ -18,6 +18,7 @@ const AVATAR_URL = '/avatar.jpg';
 const PROJECT_LAUNCHFAST = '/launchfast-mockup.png';
 const PROJECT_KIS = '/kis-mockup.png';
 const PROJECT_LIFTMYGRADE = '/liftmygrade-mockup.png';
+const PROJECT_THETIPTOP = '/thetiptop-mockup.jpg';
 const PROJECT_PULSEBOARD = 'https://images.hostinger.com/c290ea5c-f229-4e6c-9679-375959e37ea1.png';
 const PROJECT_HAVEN = 'https://images.hostinger.com/b5de57f6-bb27-4952-b052-c858b4b2ddc8.png';
 
@@ -61,6 +62,15 @@ const PROJECTS = [
 		year: '2025',
 		image: PROJECT_LIFTMYGRADE,
 		href: 'https://liftmygrade.com/',
+	},
+	{
+		id: '04',
+		title: 'The TipTop',
+		category: 'Restaurant Management & Food Ordering Platform',
+		tags: 'Full Stack & Responsive UI',
+		year: '2025',
+		image: PROJECT_THETIPTOP,
+		href: 'https://thetiptop.in/',
 	},
 ];
 
@@ -333,7 +343,7 @@ export default function HomePage() {
 						<div className="mb-8 flex items-end justify-between">
 							<h2 className="text-3xl font-medium tracking-[-0.02em] md:text-5xl">
 								Selected Work
-								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(03)</span>
+								<span className="ml-3 align-top text-sm tabular-nums text-muted-foreground">(04)</span>
 							</h2>
 							<span className="hidden text-sm text-muted-foreground md:block">
 								2023 — 2025
